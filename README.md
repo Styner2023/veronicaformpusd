@@ -1,5 +1,3 @@
-README template provides a comprehensive overview of the project, including a description, features, and future enhancements.
-
 ---
 
 # VeronicaFormPUSD
