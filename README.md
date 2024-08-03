@@ -1,4 +1,4 @@
-Here's an updated version of your README with the additional details and refinements as discussed. The template provides a comprehensive overview of the project, including a description, features, and future enhancements.
+README template provides a comprehensive overview of the project, including a description, features, and future enhancements.
 
 ---
 
