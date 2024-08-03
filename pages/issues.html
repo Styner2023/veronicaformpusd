@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issues - Veronica Miramontes for Monterey Peninsula Schools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #006d77;
+            --secondary-color: #e29578;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --accent-color: #774936;
+            --header-color: #f8f9fa;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--header-color);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 1.4em;
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .logo:hover span::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--header-color);
+            text-decoration: none;
+            position: relative;
+            transition: opacity 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        nav ul li a:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .hero {
+            background: url('/assets/images/issues/priority-issues.png') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--header-color);
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .issue-item {
+            background-color: var(--header-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .issue-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .issue-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .issue-item ul {
+            padding-left: 1.5rem;
+        }
+
+        .quote {
+            background-color: var(--secondary-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .quote p {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var (--header-color);
+        }
+
+        .testimonial {
+            background-color: #f0f0f0;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
+        .testimonial cite {
+            font-weight: bold;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--header-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d68469;
+        }
+
+        .achievement {
+            background-color: #e6f3f5;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        .achievement h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .icon-img {
+            width: 40px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 20px 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--header-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero-content {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .quote {
+                font-size: 1em;
+            }
+
+            .issues-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-content>div {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="home.html" class="logo">
+                <img src="/assets/images/home/logo.png" alt="Logo">
+                <span>Veronica Miramontes</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="endorsements.html">Endorsements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Priority Issues</h1>
+            <p>Building a brighter future for Monterey Peninsula Schools</p>
+        </div>
+    </section>
+
+    <main>
+        <h2 class="section-title">Our Focus Areas</h2>
+        <div class="issues-grid">
+            <div class="issue-item">
+                <img src="/assets/images/issues/icon-education.png" alt="Education Icon" class="icon-img">
+                <h3>01. Improving Access to Quality Education</h3>
+                <p>As a former educator in local schools, I've seen firsthand the impact of limited resources on our students. My vision is to ensure every child has the tools they need to succeed.</p>
+                <ul>
+                    <li>Reduce class sizes from current average of 28 to 22 students</li>
+                    <li>Expand after-school programs to reach 50% more students</li>
+                    <li>Invest $2 million in modern learning technologies</li>
+                    <li>Provide 40 hours of annual professional development for teachers</li>
+                </ul>
+                <div class="achievement">
+                    <h4>Past Achievement</h4>
+                    <p>Successfully implemented a pilot program that reduced class sizes by 15% in three local schools, resulting in a 20% improvement in standardized test scores.</p>
+                </div>
+            </div>
+            <div class="issue-item">
+                <img src="/assets/images/issues/icon-inclusion.png" alt="Inclusion Icon" class="icon-img">
+                <h3>02. Promoting Cultural Diversity and Inclusion</h3>
+                <p>My Chicana Indigenous heritage has taught me the value of diversity. I'm committed to creating an inclusive environment that celebrates all cultures.</p>
+                <ul>
+                    <li>Implement culturally responsive teaching practices in all schools</li>
+                    <li>Increase diversity in curriculum by 30%</li>
+                    <li>Host monthly multicultural events in each school</li>
+                    <li>Provide bilingual support for 100% of ELL students and families</li>
+                </ul>
+                <div class="achievement">
+                    <h4>Past Achievement</h4>
+                    <p>Developed a district-wide cultural awareness program that increased student engagement by 25% among minority students.</p>
+                </div>
+            </div>
+            <div class="issue-item">
+                <img src="/assets/images/issues/icon-stem.png" alt="STEM Icon" class="icon-img">
+                <h3>03. Enhancing STEM Programs</h3>
+                <p>In our rapidly evolving world, STEM education is crucial. I aim to prepare our students for the jobs of tomorrow.</p>
+                <ul>
+                    <li>Increase STEM course offerings by 40%</li>
+                    <li>Partner with 10 local tech companies for mentorship programs</li>
+                    <li>Upgrade science labs in all middle and high schools</li>
+                    <li>Establish coding clubs in 100% of our schools</li>
+                </ul>
+                <div class="achievement">
+                    <h4>Past Achievement</h4>
+                    <p>Launched a successful robotics program that led to a 30% increase in students pursuing STEM majors in college.</p>
+                </div>
+            </div>
+            <div class="issue-item">
+                <img src="/assets/images/issues/icon-partnerships.png" alt="Partnerships Icon" class="icon-img">
+                <h3>04. Strengthening Community-School Partnerships</h3>
+                <p>I believe in the power of community. By working together, we can provide unparalleled support for our students.</p>
+                <ul>
+                    <li>Increase parent involvement by 50% through regular workshops</li>
+                    <li>Establish internship programs with 20 local businesses</li>
+                    <li>Partner with 5 community organizations for after-school programs</li>
+                    <li>Create a 15-member community advisory board</li>
+                </ul>
+                <div class="achievement">
+                    <h4>Past Achievement</h4>
+                    <p>Established a successful parent-teacher collaboration program that improved student attendance by 15%.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <p>"Veronica's dedication to our schools is unparalleled. Her innovative ideas and commitment to diversity have already made a significant impact in our community."</p>
+            - Maria Rodriguez, Monterey Peninsula Parent
+        </div>
+
+        <div class="quote">
+            <p>"Education is the most powerful weapon which you can use to change the world. Together, we can create a school system that empowers every student to reach their full potential."</p>
+        </div>
+
+        <div class="cta-section">
+            <h2>Join the Movement for Better Schools</h2>
+            <p>Your support can make a difference in the lives of our students. Get involved today!</p>
+            <a href="volunteer.html" class="cta-button">Volunteer</a>
+            <a href="donate.html" class="cta-button">Donate</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="endorsements.html">Endorsements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Office Address</h3>
+                <p>123 Main Street, Monterey, CA 93940</p>
+                <p>Email: veronica@miramontes4schools.com</p>
+                <p>Phone: (831) 555-0123</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

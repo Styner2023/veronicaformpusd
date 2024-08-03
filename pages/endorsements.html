@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endorsements - Veronica Miramontes for Monterey Peninsula Schools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #006d77;
+            --secondary-color: #e29578;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --accent-color: #774936;
+            --header-color: #f8f9fa;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--header-color);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 1.4em;
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .logo:hover span::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--header-color);
+            text-decoration: none;
+            position: relative;
+            transition: opacity 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        nav ul li a:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .hero {
+            background: url('/assets/images/endorsements/endorsements-hero.png') no-repeat center center;
+            background-size: cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--header-color);
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .endorsements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .endorsement-item {
+            background-color: var(--header-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .endorsement-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .endorsement-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .endorsement-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .endorsement-item p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .endorsement-item .title {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .quote {
+            background-color: var(--secondary-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .quote p {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--header-color);
+        }
+
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--header-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d68469;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 20px 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--header-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero-content {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .quote {
+                font-size: 1em;
+            }
+
+            .endorsements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-content>div {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="home.html" class="logo">
+                <img src="/assets/images/home/logo.png" alt="Logo">
+                <span>Veronica Miramontes</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="endorsements.html">Endorsements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Endorsements</h1>
+            <p>Supported by leaders who believe in our vision for Monterey Peninsula Schools</p>
+        </div>
+    </section>
+
+    <main>
+        <h2 class="section-title">Our Supporters</h2>
+        <div class="endorsements-grid">
+            <div class="endorsement-item">
+                <img src="/assets/images/endorsements/Juan Gomez.png" alt="Juan Gomez">
+                <h3>Juan Gomez</h3>
+                <p>"The vision for inclusive, quality education is exactly what Monterey Peninsula needs. This campaign's dedication to our schools and community is unmatched."</p>
+                <span class="title">Executive Director, Local Youth Organization</span>
+            </div>
+            <div class="endorsement-item">
+                <img src="/assets/images/endorsements/Emily Cota.png" alt="Emily Cota">
+                <h3>Emily Cota</h3>
+                <p>"As an educator, I've seen firsthand the impact of the proposed initiatives. The commitment to STEM education will prepare our students for the future."</p>
+                <span class="title">Program & Leadership Assistant, Education Non-profit</span>
+            </div>
+            <div class="endorsement-item">
+                <img src="/assets/images/endorsements/Bernard Bernie Gomez.png" alt="Bernard Bernie Gomez">
+                <h3>Bernard "Bernie" Gomez</h3>
+                <p>"The understanding of our diverse community and plans for inclusive education will ensure that every child has the opportunity to succeed."</p>
+                <span class="title">Program & Leadership Coordinator</span>
+            </div>
+            <div class="endorsement-item">
+                <img src="/assets/images/endorsements/Rebeca Chavez.png" alt="Rebeca Chavez">
+                <h3>Rebeca Chavez</h3>
+                <p>"As a data professional, I trust this campaign to make decisions based on evidence that will benefit all our children. The experience and passion for education are invaluable."</p>
+                <span class="title">Data & Evaluation Coordinator</span>
+            </div>
+            <div class="endorsement-item">
+                <img src="/assets/images/endorsements/George Villa.png" alt="George Villa">
+                <h3>George Villa</h3>
+                <p>"The plans for strengthening community-school partnerships will create unprecedented opportunities for our students."</p>
+                <span class="title">Policy & Programs Manager</span>
+            </div>
+            <div class="endorsement-item">
+                <img src="/assets/images/endorsements/Keylin Figueroa.png" alt="Keylin Figueroa">
+                <h3>Keylin Figueroa</h3>
+                <p>"The commitment to environmental education and media literacy aligns perfectly with our community's values. This campaign has my full support."</p>
+                <span class="title">Program & Media Coordinator</span>
+            </div>
+        </div>
+
+        <div class="quote">
+            <p>"We are honored and humbled by the support of our community leaders. Together, we will build a brighter future for Monterey Peninsula Schools."</p>
+        </div>
+
+        <div class="cta-section">
+            <h2>Join the Movement for Better Schools</h2>
+            <p>Your support can make a difference in the lives of our students. Get involved today!</p>
+            <a href="volunteer.html" class="cta-button">Volunteer</a>
+            <a href="donate.html" class="cta-button">Donate</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="endorsements.html">Endorsements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://www.linkedin.com">LinkedIn</a></li>
+                    <li><a href="https://www.facebook.com/Veronica4MPUSD">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/p/C96eyLexDz9BXARXxlJlRXVPYID4Q1jgRbwR7g0/?img_index=NaN">Instagram</a></li>
+                    <li><a href="https://www.twitter.com">Twitter</a></li>
+                    <li><a href="#">How to Vote</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Office Address</h3>
+                <p>700 Pacific St, Monterey, CA 93940</p>
+                <p>Email: <a href="mailto:veronica@miramontes4schools.com">veronica@miramontes4schools.com</a></p>
+                <p>Phone: <a href="tel:+18315550123">(831) 555-0123</a></p>
+                <p><a href="https://www.mpusd.net/">School District Website</a></p>
+                <p><a href="#">School Contact Information</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

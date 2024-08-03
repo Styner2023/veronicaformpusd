@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Veronica Miramontes - For Monterey Peninsula Schools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #006d77;
+            --secondary-color: #e29578;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --accent-color: #774936;
+            --header-color: #f8f9fa;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--header-color);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 1.4em;
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .logo:hover span::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--header-color);
+            text-decoration: none;
+            position: relative;
+            transition: opacity 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        nav ul li a:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .hero {
+            background: url('../assets/images/about/cultural-heritage.png') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--header-color);
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-item {
+            background-color: var(--header-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .about-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .quote {
+            background-color: var(--secondary-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .quote p {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .get-involved-button {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .get-involved-button:hover {
+            background-color: #005662;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        footer h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--header-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-grid {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-content>div {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="home.html" class="logo">
+                <img src="../assets/images/home/logo.png" alt="Logo">
+                <span>Veronica Miramontes</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="endorsements.html">Endorsements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About Veronica Miramontes</h1>
+            <p>Chicana Indigenous Educator and Advocate for Monterey Peninsula Schools</p>
+        </div>
+    </section>
+
+    <main>
+        <h2 class="section-title">My Story</h2>
+        <div class="about-grid">
+            <div class="about-item">
+                <h3>Heritage</h3>
+                <p>45% of my ancestors are from the Indigenous Americas, predominantly NorthEastern Mexico (Huachichil Nation) and SouthEast Texas (Coahuiltecan Nation). I proudly identify as Chicana Indigenous, embracing both my Latina and Indigenous roots.</p>
+            </div>
+            <div class="about-item">
+                <h3>Education</h3>
+                <p>I hold a Bachelor's degree in Education from California State University, Monterey Bay, and a Master's in Educational Leadership with a focus on culturally responsive teaching and community engagement.</p>
+            </div>
+            <div class="about-item">
+                <h3>Career</h3>
+                <p>My career began as an educator in local schools, where I developed a deep understanding of our community's needs. This experience fuels my passion for serving on the Monterey Peninsula Schools Board.</p>
+            </div>
+            <div class="about-item">
+                <h3>Achievements</h3>
+                <ul>
+                    <li>Implemented successful bilingual education programs</li>
+                    <li>Led initiatives to increase parent involvement in schools</li>
+                    <li>Developed partnerships with local businesses for student internships</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quote">
+            <p>"I am tatli (compassion), anantli (women of the river), teyacanqui (leader) and happy. I am Chicana, I am Indigenous. I am Chicana Indigenous."</p>
+        </div>
+
+        <div class="button-container" style="text-align: center; margin-bottom: 2rem;">
+            <button class="get-involved-button">Get Involved</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="endorsements.html">Endorsements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Office Address</h3>
+                <p>123 Main Street, Monterey, CA 93940</p>
+                <p>Email: veronica@miramontes4schools.com</p>
+                <p>Phone: (831) 555-0123</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

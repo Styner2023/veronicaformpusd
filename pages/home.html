@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veronica Miramontes for Monterey Peninsula Schools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #006d77;
+            --secondary-color: #e29578;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --accent-color: #774936;
+            --header-color: #f8f9fa;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--header-color);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 1.4em;
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .logo:hover span::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--header-color);
+            text-decoration: none;
+            position: relative;
+            transition: opacity 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-color);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        nav ul li a:hover::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .hero {
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #f8f9fa;
+            padding: 0 50px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+            text-align: right;
+            padding-left: 50%;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .quote {
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            line-height: 1.4;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #e29578;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-top: 20px;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #006d77;
+            border-bottom: 2px solid #e29578;
+            padding-bottom: 10px;
+        }
+
+        .priorities {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .priority-item {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .priority-item img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .priority-item h3 {
+            color: #774936;
+        }
+
+        .cta {
+            background-color: #006d77;
+            color: #f8f9fa;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .cta h2 {
+            margin: 0 0 20px 0;
+            color: #f8f9fa;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e29578;
+            color: #f8f9fa;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d18568;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+            padding: 20px 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--header-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* New CSS for Overview section */
+        .section#about h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #006d77;
+            text-align: center;
+            position: relative;
+        }
+
+        .section#about h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #e29578;
+            margin: 10px auto 0;
+        }
+
+        .section#about .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .section#about .about-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .section#about .about-image {
+            flex: 1;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .section#about .about-image img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section#about p.main-text {
+            font-size: 2.5em;
+            font-weight: bold;
+            line-height: 1.2;
+            color: #006d77;
+            margin-bottom: 20px;
+        }
+
+        .section#about p.sub-text {
+            font-size: 1em;
+            font-weight: normal;
+            color: #666;
+        }
+
+        .section#issues h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #006d77;
+            text-align: center;
+            position: relative;
+        }
+
+        .section#issues h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #e29578;
+            margin: 10px auto 0;
+        }
+
+        .priorities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .priority-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .priority-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .priority-item img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .priority-item h3 {
+            color: #006d77;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero-content {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .quote {
+                font-size: 1em;
+            }
+
+            .priorities {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-content>div {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-content {
+                padding-left: 30%;
+            }
+
+            h1 {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="home.html" class="logo">
+                <img src="/assets/images/home/logo.png" alt="Logo">
+                <span>Veronica Miramontes</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="endorsements.html">Endorsements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Veronica Miramontes</h1>
+                <p class="quote">"I am committed to using my position to serve the needs of our students and create a better future for the Monterey Peninsula Schools community."</p>
+                <p class="signature">Veronica Miramontes</p>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <h2>Overview</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="main-text">I am honored to run for the Monterey Peninsula Schools Board and I am committed to making a positive difference in the lives of our students and families.</p>
+                    <p class="sub-text">On this website, you will find information about my background, my vision for the future, and the key priorities that guide my work.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/assets/images/home/logo.png" alt="Logo">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="issues">
+            <h2>Priority Issues</h2>
+            <div class="priorities">
+                <div class="priority-item">
+                    <img src="/assets/images/home/icon-education.png" alt="Education">
+                    <h3>01. Improving access to quality education</h3>
+                    <p>Ensuring every student has access to high-quality educational resources and opportunities.</p>
+                </div>
+                <div class="priority-item">
+                    <img src="/assets/images/home/icon-inclusion.png" alt="Inclusion">
+                    <h3>02. Promoting cultural diversity and inclusion</h3>
+                    <p>Celebrating our community's diverse heritage and fostering an inclusive learning environment.</p>
+                </div>
+                <div class="priority-item">
+                    <img src="/assets/images/home/icon-stem.png" alt="STEM">
+                    <h3>03. Enhancing STEM programs</h3>
+                    <p>Strengthening science, technology, engineering, and mathematics education to prepare students for future careers.</p>
+                </div>
+                <div class="priority-item">
+                    <img src="/assets/images/home/icon-partnerships.png" alt="Partnerships">
+                    <h3>04. Strengthening community-school partnerships</h3>
+                    <p>Building strong relationships between schools, families, and local organizations to support student success.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" id="contact">
+            <h2>Join me in creating better schools for all!</h2>
+            <a href="contact.html" class="cta-button">Get Involved</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="issues.html">Issues</a></li>
+                    <li><a href="endorsements.html">Endorsements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Office Address</h3>
+                <p>123 Main Street, Monterey, CA 93940</p>
+                <p>Email: veronica@miramontes4schools.com</p>
+                <p>Phone: (831) 555-0123</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const heroSection = document.querySelector('.hero');
+            const img = new Image();
+            img.onload = function() {
+                heroSection.style.backgroundImage = 'url("/assets/images/home/hero-image.png")';
+            };
+            img.onerror = function() {
+                console.error('Failed to load hero image');
+                heroSection.style.backgroundImage = 'linear-gradient(to right, #006d77, #83c5be)';
+            };
+            img.src = '/assets/images/home/hero-image.png';
+        });
+    </script>
+</body>
+
+</html>
