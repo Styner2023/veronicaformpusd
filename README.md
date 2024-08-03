@@ -78,7 +78,7 @@ This project is licensed under the MIT License.
 - Integrating social media feeds
 
 ## Contact
-For inquiries, please contact us at https://www.linkedin.com/in/kishana-stiner/.
+For inquiries, please contact us at https://www.linkedin.com/in/kishana-stiner/
 
 ---
 
